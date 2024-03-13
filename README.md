@@ -1,4 +1,4 @@
-# sereniguide-webapp
+# SereniGuide Web Application
 
 ## Project setup
 ```
