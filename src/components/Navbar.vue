@@ -24,9 +24,8 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #84A98C;
     padding: 10px;
-    color: rgb(0, 0, 0);
+    color: #EBEBEB;
     padding-top: 12px;
     padding-bottom: 12px;
 }
@@ -62,11 +61,11 @@ export default {
 
 .navbar-link a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: #EBEBEB;
 }
 
 .navbar-link a:hover {
-    color: #EBEBEB;
+    color: #B3AAFF;
 }
 
 

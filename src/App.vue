@@ -26,8 +26,23 @@ export default {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #13072E;
+  font-family: 'Poppins', sans-serif;  
+  background: linear-gradient(-45deg, #383364, #2c2751, #1f1a3e, #140e2b, #0c051a);
+  animation: gradient 5s ease infinite;
+	height: 100vh;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .container {
