@@ -1,5 +1,5 @@
 <template>
-  <Navbar />
+  <Contact-us />
   <div class="container">
     <h1 style="color: white;"> Hello! </h1>
   </div>
@@ -8,11 +8,13 @@
 <script>
 import Navbar from './components/Navbar.vue'
 import Landing from './components/Landing.vue'
+import ContactUs from './components/Contact-us.vue'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    ContactUs
   }
 }
 </script>
