@@ -28,6 +28,8 @@ export default {
     color: #EBEBEB;
     padding-top: 12px;
     padding-bottom: 12px;
+    box-shadow: 0 0px 25px #B3AAFF; /* Adding a shadow */
+
 }
 
 .navbar-left {

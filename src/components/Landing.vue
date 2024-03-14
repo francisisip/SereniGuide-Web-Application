@@ -14,6 +14,7 @@ export default {
 }
 </script>
 
+
 <style>
 body {
     display: flex;
@@ -47,15 +48,25 @@ body {
 }
 
 button {
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: inherit;
     background-color: #fff;
     color: #000;
-    border: none;
+    height: 3vw; 
+    width: 11vw; 
+    padding: 0.25vw 1vw; 
+    margin: 5px;
+    border: 2px solid #fff; 
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2vw; 
+    font-family: inherit;
+    transition: background-color 0.4s, color 0.4s; 
 }
+
+button:hover {
+    color: #fff;
+    background-color: #383364;
+    border: 2px solid #fff; 
+}
+
 </style>
