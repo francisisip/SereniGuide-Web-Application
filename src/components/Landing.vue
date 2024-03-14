@@ -1,6 +1,9 @@
 <template>
     <div id="welcome">
-        <h1 id="welcome-text">SereniGuide</h1>
+        <div id="text-container">
+            <img id="main-logo" :src="require('@/assets/logo.png')" alt="">
+            <h1 id="welcome-text">SereniGuide</h1>
+        </div>
         <button>Get Started</button>
     </div>
 </template>
@@ -13,23 +16,10 @@ export default {
 
 <style>
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: linear-gradient(-45deg, #13072e, #3f2182);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-	height: 100vh;
+    display: flex;
+    justify-content: center;
 }
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+
 #welcome {
     display: flex;
     margin: auto;
@@ -41,9 +31,19 @@ body {
     flex-direction: column;
 }
 
+#text-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
 #welcome-text{
     font-size: 7vw;
     color: #fff;
+}
+
+#main-logo{
+    height: 7vw;
 }
 
 button {

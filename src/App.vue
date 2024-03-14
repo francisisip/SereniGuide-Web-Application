@@ -1,8 +1,5 @@
 <template>
-  <Contact-us />
-  <div class="container">
-    <h1 style="color: white;"> Hello! </h1>
-  </div>
+  <Landing />
 </template>
 
 <script>
@@ -14,7 +11,8 @@ export default {
   name: 'App',
   components: {
     Navbar,
-    ContactUs
+    ContactUs,
+    Landing
   }
 }
 </script>
@@ -33,7 +31,6 @@ body {
   background: linear-gradient(-45deg, #383364, #2c2751, #1f1a3e, #140e2b, #0c051a);
   animation: gradient 5s ease infinite;
 	height: 100vh;
-
 }
 
 @keyframes gradient {
