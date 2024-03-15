@@ -50,15 +50,15 @@ body {
 button {
     background-color: #fff;
     color: #000;
-    height: 3vw; 
-    width: 11vw; 
-    padding: 0.25vw 1vw; 
+    height: 4.5vw; 
+    width: 18vw; 
+    padding: 0.25vw 0.75vw; 
     margin: 5px;
     border: 2px solid #fff; 
-    border-radius: 25px;
+    border-radius: 20vw;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.2vw; 
+    font-size: 1.8vw; 
     font-family: inherit;
     transition: background-color 0.4s, color 0.4s; 
 }
