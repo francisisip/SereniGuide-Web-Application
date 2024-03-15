@@ -13,12 +13,12 @@
 
             <div id="bottom-half">
                 <form class="form-container" action="">
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
+                    <input id="age" class="inpt" type="number">
+                    <input id="sleep-duration" class="inpt" type="number">
+                    <input id="awakenings" class="inpt" type="number">
+                    <input id="exercise" class="inpt" type="number">
+                    <input id="caffeine" class="inpt" type="number">
+                    <input id="alcohol" class="inpt" type="number">
                 </form>
                 <button class="form-btn"> Submit </button>
             </div>
@@ -35,7 +35,7 @@ export default {
 <style>
 #app {
     display: flex;
-    justify-content: center;   
+    justify-content: center;
 }
 
 .input-form {
@@ -43,20 +43,25 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     color: #fff;
 }
 
 #top-half {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10vw;
-    width: 100%;
+    width: 80%;
     height: 30%;
     color: #fff;
+    padding: 15px;
+}
+
+#bottom-half {
+    width: 80%;
 }
 
 .form-container {
@@ -65,12 +70,16 @@ export default {
     justify-content: center;
     align-items: center;
     gap: 1vw;
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    height: auto;
     color: #fff;
 }
 
+.form-container .inpt {
+    width: 15%; /* Adjusted to 15% */
+}
+
 .form-btn {
-    
+   
 }
 </style>

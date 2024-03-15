@@ -1,5 +1,5 @@
 <template>
-  <Landing/>
+  <InputForm/>
 </template>
 
 <script>
