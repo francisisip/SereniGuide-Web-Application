@@ -1,21 +1,38 @@
 <template>
-    <div id="welcome">
+    <div v-if="showLanding" id="welcome">
         <div id="text-container">
             <img id="main-logo" :src="require('@/assets/logo.png')" alt="">
             <h1 id="welcome-text">SereniGuide</h1>
         </div>
-        <button>Get Started</button>
+        <router-link v-if="showButton" to="/input"><button>Get Started</button></router-link>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Landing',
+    data() {
+        return {
+            showLanding: true,
+            showButton: true 
+        };
+    },
+    created() {
+        this.$router.beforeEach((to, from, next) => {
+            if (to.path === '/') {
+                this.showLanding = true;
+                this.showButton = true;
+            } else {
+                this.showLanding = false;
+                this.showButton = false;
+            }
+            next();
+        });
+    }
 }
 </script>
 
-
-<style>
+<style scoped>
 body {
     display: flex;
     justify-content: center;
@@ -50,15 +67,15 @@ body {
 button {
     background-color: #fff;
     color: #000;
-    height: 3vw; 
-    width: 11vw; 
-    padding: 0.25vw 1vw; 
+    height: 4.5vw; 
+    width: 18vw; 
+    padding: 0.25vw 0.75vw; 
     margin: 5px;
     border: 2px solid #fff; 
-    border-radius: 25px;
+    border-radius: 20vw;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.2vw; 
+    font-size: 1.8vw; 
     font-family: inherit;
     transition: background-color 0.4s, color 0.4s; 
 }
