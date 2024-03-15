@@ -1,8 +1,8 @@
 <template>
   <div class="forlanding">
-      <Landing v-if="showLanding" />
+    <Landing v-if="showLanding" />  
+    <router-view></router-view>
   </div>
-  <router-view></router-view>
   
 </template>
 
@@ -52,13 +52,9 @@ body {
   animation: gradient 5s ease infinite;
 	height: 100vh;
   margin: 0;
-}
-
-.forlanding {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 15%;
 }
 
 @keyframes gradient {
