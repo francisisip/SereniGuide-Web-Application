@@ -3,15 +3,11 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
 import Landing from './components/Landing.vue'
-import ContactUs from './components/Contact-us.vue'
 
 export default {
   name: 'App',
   components: {
-    Navbar,
-    ContactUs,
     Landing
   }
 }
