@@ -4,7 +4,10 @@
 
             <div id="top-half">
                 <div class="title-prompt">
-                    <h3>SereniGuide</h3>
+                    <div class="title">
+                        <img id="logo" :src="require('@/assets/logo.png')" alt="">
+                        <h3>SereniGuide</h3>
+                    </div>
                     <h1>Learn Your Sleep Habits</h1>
                     <h3>start your tracking today</h3>
                 </div>
@@ -15,15 +18,48 @@
 
             <div id="bottom-half">
                 <form class="form-container" action="">
-                    <input id="age" class="inpt" type="number">
-                    <input id="sleep-duration" class="inpt" type="number">
-                    <input id="awakenings" class="inpt" type="number">
-                    <input id="exercise" class="inpt" type="number">
-                    <input id="caffeine" class="inpt" type="number">
-                    <input id="alcohol" class="inpt" type="number">
+                    <div class="form1">
+                        <div class="form-floating mb-3">
+                            <input type="numeric" class="form-control inpt" id="age" placeholder="test" required>
+                            <label for="age">1&rpar; Age</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="numeric" class="form-control inpt" id="sleep-duration" placeholder="test" required>
+                            <label for="sleep-duration">2&rpar; Duration of Sleep (Hours)</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="numeric" class="form-control inpt" id="awakenings" placeholder="test" required>
+                            <label for="awakenings">3&rpar; No. of Awakenings</label>
+                        </div>
+                    </div>
+                    <div class="form2">
+                        <div class="form-floating">
+                            <select class="form-select smokeselect inpt" id="smoking" aria-label="Floating label select example">
+                                <option value ="">Select...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+
+                            </select>
+                            <label for="smoking">4&rpar; Do you smoke?</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="numeric" class="form-control inpt" id="exercise" placeholder="test" required>
+                            <label for="exercise">5&rpar; Weekly Exercise Frequency</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="numeric" class="form-control inpt" id="caffeine" placeholder="test" required>
+                            <label for="caffeine">6&rpar; No. of Coffee Cups</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="numeric" class="form-control inpt" id="alcohol" placeholder="test" required>
+                            <label for="alcohol">7&rpar; Alcohol Consumption</label>
+                        </div>
+                    </div>
                 </form>
                 <br>
-                <button class="form-btn"> Submit </button>
+                <div id="btn-div">
+                    <button class="form-btn"> Submit </button>
+                </div>
             </div>
         </div>
     </div>
@@ -36,15 +72,13 @@ export default {
 </script>
 
 <style scoped>
-
-.input-form {
+#logo {
+    height: 1.6vw;
+}
+.title{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    color: #fff;
+    flex-direction: row;
+    gap: 10px;
 }
 
 #top-half {
@@ -53,7 +87,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     gap: 10vw;
-    width: 80%;
+    width: 100%;
     height: 30%;
     color: #fff;
     padding: 15px;
@@ -66,10 +100,11 @@ export default {
 
 .title-prompt h1{
     font-size: 4.2vw;
+    font-weight: bold;
 }
 
 #bottom-half {
-    width: 80%;
+    width: 100%;
 }
 
 #moon {
@@ -78,7 +113,7 @@ export default {
 
 .form-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1vw;
@@ -87,11 +122,97 @@ export default {
     color: #fff;
 }
 
-.form-container .inpt {
-    width: 15%; /* Adjusted to 15% */
+.form1 .form-floating {
+    width: 25%; 
+    height: 80%;
 }
 
-.form-btn {
-   
+.form2 .form-floating {
+    width: 25%; 
+
+}
+
+.inpt {
+    border-radius: 10px;
+    background: #19191952;
+    color: #fff;
+    
+}
+
+.form-floating>.form-control-plaintext:focus, .form-floating>.form-control-plaintext:not(:placeholder-shown), .form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+    padding-top: 2.2rem;
+    padding-bottom: 0.625rem;
+}
+
+.form-floating>.form-select {
+    padding-top: 1.8rem;
+    padding-bottom: 0.625rem;
+}
+
+label {
+    color: #e7e7e7 !important;
+    background-color: transparent !important;
+    font-size: 0.90vw;
+    font-weight: 590; 
+}
+
+label:after {
+    background-color: transparent !important;
+}
+
+select option {
+    background-color: #1b142c;
+}
+
+
+.inpt:focus {
+    background: transparent ;
+    color: #fff;
+}
+
+
+.form1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: start;
+    gap: 1.5vw;
+    width: 100%;
+}
+
+.form2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1.5vw;
+    width: 100%;
+}
+
+button {
+    background-color: #fff;
+    color: #000;
+    height: 2.5vw; 
+    width: 12vw; 
+    padding: 0.25vw 0.75vw; 
+    margin: 5px;
+    border: 2px solid #fff; 
+    border-radius: 20vw;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1vw; 
+    font-family: inherit;
+    transition: background-color 0.4s, color 0.4s; 
+}
+
+button:hover {
+    color: #fff;
+    background-color: #383364;
+    border: 2px solid #fff; 
+}
+
+#btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 </style>

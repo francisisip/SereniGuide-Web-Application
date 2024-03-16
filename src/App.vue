@@ -44,10 +44,11 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif; 
 }
 
 body {
-  font-family: 'Poppins', sans-serif;  
+
   background: linear-gradient(-45deg, #383364, #2c2751, #1f1a3e, #140e2b, #0c051a);
   animation: gradient 5s ease infinite;
 	height: 100vh;
