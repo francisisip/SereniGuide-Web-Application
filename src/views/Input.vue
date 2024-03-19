@@ -20,15 +20,15 @@
                 <form class="form-container" action="">
                     <div class="form1">
                         <div class="form-floating mb-3">
-                            <input type="numeric" class="form-control inpt" id="age" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="age" placeholder="test" required>
                             <label for="age">1&rpar; Age</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="numeric" class="form-control inpt" id="sleep-duration" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="sleep-duration" placeholder="test" required>
                             <label for="sleep-duration">2&rpar; Duration of Sleep (Hours)</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="numeric" class="form-control inpt" id="awakenings" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="awakenings" placeholder="test" required>
                             <label for="awakenings">3&rpar; No. of Awakenings</label>
                         </div>
                     </div>
@@ -43,22 +43,22 @@
                             <label for="smoking">4&rpar; Do you smoke?</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="numeric" class="form-control inpt" id="exercise" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="exercise" placeholder="test" required>
                             <label for="exercise">5&rpar; Weekly Exercise Frequency</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="numeric" class="form-control inpt" id="caffeine" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="caffeine" placeholder="test" required>
                             <label for="caffeine">6&rpar; No. of Coffee Cups</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="numeric" class="form-control inpt" id="alcohol" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="alcohol" placeholder="test" required>
                             <label for="alcohol">7&rpar; Alcohol Consumption</label>
                         </div>
                     </div>
                 </form>
                 <br>
                 <div id="btn-div">
-                    <button class="form-btn"> Submit </button>
+                    <input type="button" value="Submit" class="btn-s" @click="handleSubmit">
                 </div>
             </div>
         </div>
@@ -68,6 +68,34 @@
 <script>
 export default {
     name: 'Input-Form',
+    methods: {
+        validateForm() {
+            // Get references to form fields
+            const age = document.getElementById('age').value;
+            const sleepDuration = document.getElementById('sleep-duration').value;
+            const awakenings = document.getElementById('awakenings').value;
+            const smoking = document.getElementById('smoking').value;
+            const exercise = document.getElementById('exercise').value;
+            const caffeine = document.getElementById('caffeine').value;
+            const alcohol = document.getElementById('alcohol').value;
+
+            // Validate each field
+            if (!age || !sleepDuration || !awakenings || !smoking || !exercise || !caffeine || !alcohol) {
+                alert('Please fill in all fields.');
+                return false; // Prevent form submission
+            }
+
+            // You can add more specific validation logic here if needed
+
+            return true; // Form is valid, allow submission
+        },
+        handleSubmit() {
+            if (this.validateForm()) {
+                // Form is valid, submit it
+                this.$router.push('/results'); // Redirect to results page
+            }
+        }
+    }
 }
 </script>
 
@@ -188,7 +216,7 @@ select option {
     width: 100%;
 }
 
-button {
+.btn-s {
     background-color: #fff;
     color: #000;
     height: 2.5vw; 
@@ -199,12 +227,12 @@ button {
     border-radius: 20vw;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1vw; 
+    font-size: 1.2vw; 
     font-family: inherit;
     transition: background-color 0.4s, color 0.4s; 
 }
 
-button:hover {
+.btn-s:hover {
     color: #fff;
     background-color: #383364;
     border: 2px solid #fff; 
@@ -214,5 +242,15 @@ button:hover {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; 
 }
 </style>

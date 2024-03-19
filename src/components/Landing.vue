@@ -67,15 +67,15 @@ body {
 button {
     background-color: #fff;
     color: #000;
-    height: 4.5vw; 
-    width: 18vw; 
+    height: 4vw; 
+    width: 15vw; 
     padding: 0.25vw 0.75vw; 
     margin: 5px;
     border: 2px solid #fff; 
     border-radius: 20vw;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.8vw; 
+    font-size: 1.5vw; 
     font-family: inherit;
     transition: background-color 0.4s, color 0.4s; 
 }
