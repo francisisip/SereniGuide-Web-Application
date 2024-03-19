@@ -219,8 +219,8 @@ select option {
 .btn-s {
     background-color: #fff;
     color: #000;
-    height: 2.5vw; 
-    width: 12vw; 
+    height: 3vw; 
+    width: 10vw; 
     padding: 0.25vw 0.75vw; 
     margin: 5px;
     border: 2px solid #fff; 
@@ -248,9 +248,5 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield; 
 }
 </style>

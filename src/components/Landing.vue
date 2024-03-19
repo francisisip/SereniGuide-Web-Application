@@ -67,8 +67,8 @@ body {
 button {
     background-color: #fff;
     color: #000;
-    height: 4vw; 
-    width: 15vw; 
+    height: 3.5vw; 
+    width: 12vw; 
     padding: 0.25vw 0.75vw; 
     margin: 5px;
     border: 2px solid #fff; 
