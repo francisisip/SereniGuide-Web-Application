@@ -106,14 +106,14 @@ export default {
             age,
             sleepDuration,
             awakenings,
-            smoking,
-            exercise,
             caffeine,
-            alcohol
+            alcohol,
+            smoking,
+            exercise
         };
 
         // Make Axios POST request
-        axios.post('http://localhost:5000/api/data', formData)
+        axios.post('http://127.0.01:5000/input', formData)
             .then(response => {
                 console.log('Response from server:', response.data);
                 // Handle response data as needed
