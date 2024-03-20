@@ -136,10 +136,12 @@ export default {
                 // Make Axios POST request
                 axios.post('http://127.0.0.1:5000/input', formDataArray)
                     .then(response => {
-                        console.log('Response from server:', response.data);
                         // Handle response data as needed
                         // Redirect to results page
-                        this.$router.push('/results');
+                        this.$router.push({
+                            path: '/results',
+                            query: { responseData: JSON.stringify(response.data) }
+                        });
                     })
                     .catch(error => {
                         console.error('Error submitting form:', error);

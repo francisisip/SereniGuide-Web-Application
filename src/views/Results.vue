@@ -5,7 +5,7 @@
                     <img id= "moon" :src="require('@/assets/moonv3.png')" alt="Image" />
             </div>
             <h1>You are more inclined towards being a </h1>
-            <h1 id="type" class="type">Light Sleeper</h1>
+            <h1 id="type" class="type">{{ sleepType }}</h1>
         </div>
         <div class="button-container">
             <router-link to="/save"><button>Save Results</button></router-link>
@@ -20,6 +20,29 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'Results',
+    data() {
+        return {
+            sleepType: ''
+        };
+    },
+    mounted() {
+        const responseData = JSON.parse(this.$route.query.responseData);
+        
+        const type = responseData[0]
+        if (type === 0) {
+            this.sleepType = 'Deep Sleeper';
+        } else if (type === 1) {
+            this.sleepType = 'Light Sleeper';
+        } else {
+            this.sleepType = 'Unknown';
+        }
+    }
+}
+</script>
 
 <style scoped>
 #top-half {
