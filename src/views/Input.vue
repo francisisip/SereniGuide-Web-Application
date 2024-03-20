@@ -39,8 +39,8 @@
                         <div class="form-floating">
                             <select class="form-select smokeselect inpt" id="smoking" aria-label="Floating label select example">
                                 <option value ="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                                <option value=1>Yes</option>
+                                <option value=0>No</option>
 
                             </select>
                             <label for="smoking">4&rpar; Do you smoke?</label>
@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'Input-Form',
     mounted() {
@@ -85,32 +87,44 @@ export default {
         }))
     },
     methods: {
-        validateForm() {
-            // Get references to form fields
-            const age = document.getElementById('age').value;
-            const sleepDuration = document.getElementById('sleep-duration').value;
-            const awakenings = document.getElementById('awakenings').value;
-            const smoking = document.getElementById('smoking').value;
-            const exercise = document.getElementById('exercise').value;
-            const caffeine = document.getElementById('caffeine').value;
-            const alcohol = document.getElementById('alcohol').value;
-
-            // Validate each field
-            if (!age || !sleepDuration || !awakenings || !smoking || !exercise || !caffeine || !alcohol) {
-                alert('Please fill in all fields.');
-                return false; // Prevent form submission
-            }
-
-            // You can add more specific validation logic here if needed
-
-            return true; // Form is valid, allow submission
-        },
         handleSubmit() {
-            if (this.validateForm()) {
-                // Form is valid, submit it
-                this.$router.push('/results'); // Redirect to results page
-            }
-        }
+    if (this.validateForm()) {
+        // Gather form data
+        const age = document.getElementById('age').value;
+        const sleepDuration = document.getElementById('sleep-duration').value;
+        const awakenings = document.getElementById('awakenings').value;
+        const smoking = document.getElementById('smoking').value;
+        const exercise = document.getElementById('exercise').value;
+        caffeine = document.getElementById('caffeine').value;
+        alcohol = document.getElementById('alcohol').value;
+
+        caffeine = caffeine * 90;
+        alcohol = alcohol * 14000;
+
+        // Form data object
+        const formData = {
+            age,
+            sleepDuration,
+            awakenings,
+            smoking,
+            exercise,
+            caffeine,
+            alcohol
+        };
+
+        // Make Axios POST request
+        axios.post('http://localhost:5000/api/data', formData)
+            .then(response => {
+                console.log('Response from server:', response.data);
+                // Handle response data as needed
+                // Redirect to results page
+                this.$router.push('/results');
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+            });
+    }
+}
     }
 }
 </script>
