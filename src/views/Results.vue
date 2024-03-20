@@ -5,7 +5,7 @@
                     <img id= "moon" :src="require('@/assets/moonv3.png')" alt="Image" />
             </div>
             <h1>You are more inclined towards being a </h1>
-            <h1 class="type">Light Sleeper</h1>
+            <h1 id="type" class="type">Light Sleeper</h1>
         </div>
         <div class="button-container">
             <router-link to="/save"><button>Save Results</button></router-link>
@@ -49,7 +49,7 @@
 }
 
 .button-container {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     gap: 15px; 
 }
@@ -78,11 +78,25 @@ button:hover {
 
 .disclaimer {
     margin-top: 5px;
-    font-size: 0.6vw;
+    font-size: 0.8vw;
     margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 2.5vw;
+    text-align: center;
+
 }
 
 h4 {
     font-weight: bold;
+    font-size: 1.5vw;
 }
+
+h5 {
+    font-size: 1.2vw;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 </style>
