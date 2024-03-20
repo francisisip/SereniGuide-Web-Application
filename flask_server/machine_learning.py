@@ -24,6 +24,8 @@ def input():
     new_data = scaler.transform(data)
     predictions = best_mlp.predict(new_data)
 
+    print(predictions)
+
     # Return the predictions as JSON
     return jsonify(predictions.tolist())
 

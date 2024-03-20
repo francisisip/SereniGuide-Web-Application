@@ -87,7 +87,24 @@ export default {
         }))
     },
     methods: {
-        handleSubmit() {
+        validateForm() {
+            // Get references to form fields
+            const age = document.getElementById('age').value;
+            const sleepDuration = document.getElementById('sleep-duration').value;
+            const awakenings = document.getElementById('awakenings').value;
+            const smoking = document.getElementById('smoking').value;
+            const exercise = document.getElementById('exercise').value;
+            const caffeine = document.getElementById('caffeine').value;
+            const alcohol = document.getElementById('alcohol').value;
+            // Validate each field
+            if (!age || !sleepDuration || !awakenings || !smoking || !exercise || !caffeine || !alcohol) {
+                alert('Please fill in all fields.');
+                return false; // Prevent form submission
+            }
+            // You can add more specific validation logic here if needed
+            return true; // Form is valid, allow submission
+        },
+    handleSubmit() {
     if (this.validateForm()) {
         // Gather form data
         const age = document.getElementById('age').value;
@@ -95,8 +112,8 @@ export default {
         const awakenings = document.getElementById('awakenings').value;
         const smoking = document.getElementById('smoking').value;
         const exercise = document.getElementById('exercise').value;
-        caffeine = document.getElementById('caffeine').value;
-        alcohol = document.getElementById('alcohol').value;
+        var caffeine = document.getElementById('caffeine').value;
+        var alcohol = document.getElementById('alcohol').value;
 
         caffeine = caffeine * 90;
         alcohol = alcohol * 14000;
