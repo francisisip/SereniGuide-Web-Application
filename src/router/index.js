@@ -1,24 +1,33 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import Input from '../views/Input.vue'
 import Results from '../views/Results.vue'
 
-const routes = [
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes: [
     {
-        path: '/input',
-        name: 'Input',
-        component: Input
+      path: '/input',
+      name: 'Input',
+      component: Input
     },
     {
-        path: '/results',
-        name:'Results',
-        component: Results
+      path: '/results',
+      name: 'Results',
+      component: Results,
+      meta: {
+        requiresInput: true 
+      }
     }
-]
-
-const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes
+  ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresInput && from.path !== '/input') {
+    next('/');
+  } else {
+    next();
+  }
+});
 
 export default router

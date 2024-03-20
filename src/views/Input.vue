@@ -252,7 +252,7 @@ select option {
     border-radius: 20vw;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.2vw; 
+    font-size: 1.3vw; 
     font-family: inherit;
     transition: background-color 0.4s, color 0.4s; 
 }
