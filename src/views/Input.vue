@@ -27,8 +27,11 @@
                             <input type="number" class="form-control inpt" id="sleep-duration" placeholder="test" required>
                             <label for="sleep-duration">2&rpar; Duration of Sleep (Hours)</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control inpt" id="awakenings" placeholder="test" required>
+                        <div id="awake-floating" class="form-floating mb-3">
+                            <input type="number" class="form-control inpt" id="awakenings" placeholder="test" required
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip" data-bs-offset="0,10"
+                                data-bs-title="Refers to the number of awakenings during the night (sleep duration).">
                             <label for="awakenings">3&rpar; No. of Awakenings</label>
                         </div>
                     </div>
@@ -47,12 +50,18 @@
                             <label for="exercise">5&rpar; Weekly Exercise Frequency</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control inpt" id="caffeine" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="caffeine" placeholder="test" required
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip" data-bs-offset="0,10"
+                                data-bs-title="Assumes a cup of coffee contains around 90mg of Caffeine.">
                             <label for="caffeine">6&rpar; No. of Coffee Cups</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control inpt" id="alcohol" placeholder="test" required>
-                            <label for="alcohol">7&rpar; Alcohol Consumption</label>
+                            <input type="number" class="form-control inpt" id="alcohol" placeholder="test" required
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip" data-bs-offset="0,10"
+                                data-bs-title="Assumes a standard drink contains 14g or 0.6 ounces of alcohol.">
+                            <label for="alcohol">7&rpar; No. of Alcoholic Drinks</label>
                         </div>
                     </div>
                 </form>
@@ -68,6 +77,13 @@
 <script>
 export default {
     name: 'Input-Form',
+    mounted() {
+        // Enable Bootstrap tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+            customClass: 'custom-tooltip'
+        }))
+    },
     methods: {
         validateForm() {
             // Get references to form fields
@@ -99,7 +115,16 @@ export default {
 }
 </script>
 
+<style>
+.custom-tooltip{
+    --bs-tooltip-bg: #191919f5 !important;
+    --bs-tooltip-color: var(--bs-white);
+    --bs-tooltip-font-size: .70vw !important;
+}
+</style>
+
 <style scoped>
+
 #logo {
     height: 1.6vw;
 }
