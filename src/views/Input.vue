@@ -112,8 +112,10 @@ export default {
             exercise
         };
 
+        const formDataArray = [formData]
+
         // Make Axios POST request
-        axios.post('http://127.0.01:5000/input', formData)
+        axios.post('http://127.0.01:5000/input', formDataArray)
             .then(response => {
                 console.log('Response from server:', response.data);
                 // Handle response data as needed
