@@ -12,7 +12,7 @@
                     <h3>start your tracking today</h3>
                 </div>
                 <div class="image-container">
-                    <img id= "moon" :src="require('@/assets/moon.png')" alt="Image" />
+                    <img id="moon" :src="require('@/assets/moon.png')" alt="Image" />
                 </div>
             </div>
 
@@ -24,21 +24,23 @@
                             <label for="age">1&rpar; Age</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control inpt" id="sleep-duration" placeholder="test" required>
+                            <input type="number" class="form-control inpt" id="sleep-duration" placeholder="test"
+                                required>
                             <label for="sleep-duration">2&rpar; Duration of Sleep (Hours)</label>
                         </div>
                         <div id="awake-floating" class="form-floating mb-3">
                             <input type="number" class="form-control inpt" id="awakenings" placeholder="test" required
-                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip" data-bs-offset="0,10"
+                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-offset="0,10"
                                 data-bs-title="Refers to the number of awakenings during the night (sleep duration).">
                             <label for="awakenings">3&rpar; No. of Awakenings</label>
                         </div>
                     </div>
                     <div class="form2">
                         <div class="form-floating">
-                            <select class="form-select smokeselect inpt" id="smoking" aria-label="Floating label select example">
-                                <option value ="">Select...</option>
+                            <select class="form-select smokeselect inpt" id="smoking"
+                                aria-label="Floating label select example">
+                                <option value="">Select...</option>
                                 <option value=1>Yes</option>
                                 <option value=0>No</option>
 
@@ -51,15 +53,15 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control inpt" id="caffeine" placeholder="test" required
-                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip" data-bs-offset="0,10"
+                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-offset="0,10"
                                 data-bs-title="Assumes a cup of coffee contains around 90mg of Caffeine.">
                             <label for="caffeine">6&rpar; No. of Coffee Cups</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control inpt" id="alcohol" placeholder="test" required
-                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip" data-bs-offset="0,10"
+                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-offset="0,10"
                                 data-bs-title="Assumes a standard drink contains 14g or 0.6 ounces of alcohol.">
                             <label for="alcohol">7&rpar; No. of Alcoholic Drinks</label>
                         </div>
@@ -104,52 +106,52 @@ export default {
             // You can add more specific validation logic here if needed
             return true; // Form is valid, allow submission
         },
-    handleSubmit() {
-    if (this.validateForm()) {
-        // Gather form data
-        const age = document.getElementById('age').value;
-        const sleepDuration = document.getElementById('sleep-duration').value;
-        const awakenings = document.getElementById('awakenings').value;
-        const smoking = document.getElementById('smoking').value;
-        const exercise = document.getElementById('exercise').value;
-        var caffeine = document.getElementById('caffeine').value;
-        var alcohol = document.getElementById('alcohol').value;
+        handleSubmit() {
+            if (this.validateForm()) {
+                // Gather form data
+                const age = document.getElementById('age').value;
+                const sleepDuration = document.getElementById('sleep-duration').value;
+                const awakenings = document.getElementById('awakenings').value;
+                const smoking = document.getElementById('smoking').value;
+                const exercise = document.getElementById('exercise').value;
+                var caffeine = document.getElementById('caffeine').value;
+                var alcohol = document.getElementById('alcohol').value;
 
-        caffeine = caffeine * 90;
-        alcohol = alcohol * 14000;
+                caffeine = caffeine * 90;
+                alcohol = alcohol * 14000;
 
-        // Form data object
-        const formData = {
-            age,
-            sleepDuration,
-            awakenings,
-            caffeine,
-            alcohol,
-            smoking,
-            exercise
-        };
+                // Form data object
+                const formData = {
+                    age,
+                    sleepDuration,
+                    awakenings,
+                    caffeine,
+                    alcohol,
+                    smoking,
+                    exercise
+                };
 
-        const formDataArray = [formData]
+                const formDataArray = [formData]
 
-        // Make Axios POST request
-        axios.post('http://127.0.01:5000/input', formDataArray)
-            .then(response => {
-                console.log('Response from server:', response.data);
-                // Handle response data as needed
-                // Redirect to results page
-                this.$router.push('/results');
-            })
-            .catch(error => {
-                console.error('Error submitting form:', error);
-            });
-    }
-}
+                // Make Axios POST request
+                axios.post('http://127.0.0.1:5000/input', formDataArray)
+                    .then(response => {
+                        console.log('Response from server:', response.data);
+                        // Handle response data as needed
+                        // Redirect to results page
+                        this.$router.push('/results');
+                    })
+                    .catch(error => {
+                        console.error('Error submitting form:', error);
+                    });
+            }
+        }
     }
 }
 </script>
 
 <style>
-.custom-tooltip{
+.custom-tooltip {
     --bs-tooltip-bg: #191919f5 !important;
     --bs-tooltip-color: var(--bs-white);
     --bs-tooltip-font-size: .70vw !important;
@@ -157,11 +159,11 @@ export default {
 </style>
 
 <style scoped>
-
 #logo {
     height: 1.6vw;
 }
-.title{
+
+.title {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -180,11 +182,11 @@ export default {
     margin-bottom: 30px;
 }
 
-.title-prompt h3{
+.title-prompt h3 {
     font-size: 1.6vw;
 }
 
-.title-prompt h1{
+.title-prompt h1 {
     font-size: 4.2vw;
     font-weight: bold;
 }
@@ -203,18 +205,18 @@ export default {
     justify-content: center;
     align-items: center;
     gap: 1vw;
-    width: 100%; 
+    width: 100%;
     height: auto;
     color: #fff;
 }
 
 .form1 .form-floating {
-    width: 25%; 
+    width: 25%;
     height: 80%;
 }
 
 .form2 .form-floating {
-    width: 25%; 
+    width: 25%;
 
 }
 
@@ -222,10 +224,13 @@ export default {
     border-radius: 10px;
     background: #19191952;
     color: #fff;
-    
+
 }
 
-.form-floating>.form-control-plaintext:focus, .form-floating>.form-control-plaintext:not(:placeholder-shown), .form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+.form-floating>.form-control-plaintext:focus,
+.form-floating>.form-control-plaintext:not(:placeholder-shown),
+.form-floating>.form-control:focus,
+.form-floating>.form-control:not(:placeholder-shown) {
     padding-top: 2.2rem;
     padding-bottom: 0.625rem;
 }
@@ -239,7 +244,7 @@ label {
     color: #e7e7e7 !important;
     background-color: transparent !important;
     font-size: 0.90vw;
-    font-weight: 590; 
+    font-weight: 590;
 }
 
 label:after {
@@ -252,7 +257,7 @@ select option {
 
 
 .inpt:focus {
-    background: transparent ;
+    background: transparent;
     color: #fff;
 }
 
@@ -277,23 +282,23 @@ select option {
 .btn-s {
     background-color: #fff;
     color: #000;
-    height: 3vw; 
-    width: 10vw; 
-    padding: 0.25vw 0.75vw; 
+    height: 3vw;
+    width: 10vw;
+    padding: 0.25vw 0.75vw;
     margin: 5px;
-    border: 2px solid #fff; 
+    border: 2px solid #fff;
     border-radius: 20vw;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.3vw; 
+    font-size: 1.3vw;
     font-family: inherit;
-    transition: background-color 0.4s, color 0.4s; 
+    transition: background-color 0.4s, color 0.4s;
 }
 
 .btn-s:hover {
     color: #fff;
     background-color: #383364;
-    border: 2px solid #fff; 
+    border: 2px solid #fff;
 }
 
 #btn-div {
