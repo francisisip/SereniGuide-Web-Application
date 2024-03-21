@@ -2,7 +2,8 @@
     <div id="top-half">
         <div id="results" class="text-container">
             <div class="image-container">
-                    <img id= "moon" :src="require('@/assets/moonv3.png')" alt="Image" />
+                    <img v-if="sleepType === 'Deep Sleep'" id= "moon" :src="require('@/assets/moonv3.png')" alt="Image" />
+                    <img v-else-if="sleepType === 'Light Sleep'" id= "moon" :src="require('@/assets/light-sleep-icon.png')" alt="Image" />
             </div>
             <h1>Your sleep last night showed more signs of </h1>
             <h1 id="type" class="type">{{ sleepType }}</h1>
@@ -31,7 +32,8 @@ export default {
     name: 'Results',
     data() {
         return {
-            sleepType: ''
+            sleepType: '',
+            sleepTypeIcon: ''
         };
     },
     mounted() {
@@ -40,8 +42,10 @@ export default {
         const type = responseData[0]
         if (type === 0) {
             this.sleepType = 'Deep Sleep';
+            this.sleepTypeIcon = '@/assets/moonv3.png';
         } else if (type === 1) {
             this.sleepType = 'Light Sleep';
+            this.sleepTypeIcon = '@/assets/light-sleep-icon.png';
         } else {
             this.sleepType = 'Sleep Type Cannot Be Determined';
         }
