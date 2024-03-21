@@ -4,7 +4,7 @@
             <div class="image-container">
                     <img id= "moon" :src="require('@/assets/moonv3.png')" alt="Image" />
             </div>
-            <h1>You are more inclined towards being a </h1>
+            <h1>Your sleep last night showed more signs of </h1>
             <h1 id="type" class="type">{{ sleepType }}</h1>
         </div>
         <div class="button-container">
@@ -14,9 +14,14 @@
         <span class="disclaimer">Disclaimer: This is not a professional diagnosis. Please consult a healthcare professional for a proper diagnosis.</span>
         <div class="text-container">
             <h4>Additional Information</h4>
-            <h5>REM Sleep - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac sem in justo lacinia faucibus eu consectetur purus. </h5>
-            <h5>Light Sleep - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac sem in justo lacinia faucibus eu consectetur purus. </h5>
-            <h5>Deep Sleep - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac sem in justo lacinia faucibus eu consectetur purus. </h5>
+            <h5>Light Sleep - The stage of sleep where your heart rate decreases, your body temperature drops, 
+                and your breathing slows. This phase only lasts for 10 to 25 minutes. </h5>
+            <h5>Deep Sleep - The stage of sleep that allows the the body to repair and regrow tissues, build bones 
+                and muscles, and helps strengthen the immune system. Deep sleep ideally comprises 70% of your sleep 
+                time: around 105 - 120 minutes for a healthy 8 hours.  </h5>
+            <h5>REM Sleep - Rapid Eye Movement (REM) Sleep is the stage of sleep where your brain activity, 
+                breathing, blood pressure, and heart rate all increase. REM sleep is key to better mental 
+                concentration, mood regulation, and long-term learning.  </h5>
         </div>
     </div>
 </template>
@@ -34,11 +39,11 @@ export default {
         
         const type = responseData[0]
         if (type === 0) {
-            this.sleepType = 'Deep Sleeper';
+            this.sleepType = 'Deep Sleep';
         } else if (type === 1) {
-            this.sleepType = 'Light Sleeper';
+            this.sleepType = 'Light Sleep';
         } else {
-            this.sleepType = 'Unknown';
+            this.sleepType = 'Sleep Type Cannot Be Determined';
         }
     }
 }
