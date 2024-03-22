@@ -38,3 +38,7 @@ Then, run the web application server by executing the command below:
 npm run serve
 ```
 
+### Access the web application by entering the following in the URL
+```
+localhost:8080
+```
