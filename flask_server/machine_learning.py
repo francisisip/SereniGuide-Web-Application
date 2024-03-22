@@ -23,21 +23,22 @@ def input():
     converted_data = [
         [
             int(data[0]["age"]),
-            int(data[0]["sleepDuration"]),
-            int(data[0]["awakenings"]),
-            data[0][
-                "caffeine"
-            ],  # No need to convert caffeine and alcohol since they're already integers
-            data[0]["alcohol"],
+            float(data[0]["sleepDuration"]),
+            float(data[0]["awakenings"]),
+            float(data[0]["caffeine"]),  # No need to convert caffeine and alcohol since they're already integers
+            float(data[0]["alcohol"]),
             int(data[0]["smoking"]),
-            int(data[0]["exercise"]),
+            float(data[0]["exercise"]),
         ]
     ]
+
+    print(converted_data)
     # Preprocess the data as necessary
     # For example, convert it into a format suitable for your model
 
     # Make predictions using your machine learning model
     new_data = scaler.transform(converted_data)
+    print(new_data)
     predictions = best_mlp.predict(new_data)
 
     print(predictions)

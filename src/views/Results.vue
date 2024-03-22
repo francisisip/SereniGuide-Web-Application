@@ -21,6 +21,9 @@
             <h5>Deep Sleep - The stage of sleep that allows the the body to repair and regrow tissues, build bones 
                 and muscles, and helps strengthen the immune system. Deep sleep ideally comprises 70% of your sleep 
                 time: around 105 - 120 minutes for a healthy 8 hours.  </h5>
+            <h5>{{ values }}</h5>
+            <h5 v-if="values[0] === 1">It seems like you're not getting enough sleep. 
+                For your age range (below 1 year old), The National Sleep Foundation recommends your sleep lasts between 12 to 17 hours.</h5>
             </div>
         </div>
     </div>
@@ -32,11 +35,13 @@ export default {
     data() {
         return {
             sleepType: '',
-            sleepTypeIcon: ''
+            sleepTypeIcon: '',
+            values: []
         };
     },
     mounted() {
         const responseData = JSON.parse(this.$route.query.responseData);
+        const recoValues = JSON.parse(this.$route.query.recoValues);
         
         const type = responseData[0]
         if (type === 0) {
@@ -48,6 +53,8 @@ export default {
         } else {
             this.sleepType = 'Sleep Type Cannot Be Determined';
         }
+
+        this.values = recoValues;
     }
 }
 </script>

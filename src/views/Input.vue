@@ -55,14 +55,14 @@
                             <input type="number" class="form-control inpt" id="caffeine" placeholder="test" required
                                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                 data-bs-offset="0,10"
-                                data-bs-title="Assumes a cup of coffee contains around 90mg of Caffeine.">
+                                data-bs-title="Refers to alcohol taken per day. Assumes a cup of coffee contains around 90mg of Caffeine.">
                             <label for="caffeine">6&rpar; No. of Coffee Cups</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control inpt" id="alcohol" placeholder="test" required
                                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                 data-bs-offset="0,10"
-                                data-bs-title="Assumes a standard drink contains 14g or 0.6 ounces of alcohol.">
+                                data-bs-title="Refers to alcohol taken per day. Assumes a standard drink contains 14g or 0.6 ounces of alcohol.">
                             <label for="alcohol">7&rpar; No. of Alcoholic Drinks</label>
                         </div>
                     </div>
@@ -108,6 +108,7 @@ export default {
             return true; // Form is valid, allow submission
         },
         handleSubmit() {
+            let recoValues = [0, 0, 0, 0, 0];
             if (this.validateForm()) {
                 // Gather form data
                 const age = document.getElementById('age').value;
@@ -132,6 +133,7 @@ export default {
                     exercise
                 };
 
+                recoValues = this.getRecommendations(formData)
                 const formDataArray = [formData]
 
                 document.getElementById('age').value = "";
@@ -142,21 +144,87 @@ export default {
                 document.getElementById('caffeine').value = "";
                 document.getElementById('alcohol').value = "";
 
+                console.log(recoValues)
+
                 // Make Axios POST request
                 axios.post('http://127.0.0.1:5000/input', formDataArray)
                     .then(response => {
                         // Handle response data as needed
                         // Redirect to results page
+                        
                         this.$router.push({
                             path: '/results',
-                            query: { responseData: JSON.stringify(response.data) }
+                            query: { responseData: JSON.stringify(response.data), recoValues: JSON.stringify(recoValues)}
                         });
                     })
                     .catch(error => {
                         console.error('Error submitting form:', error);
                     });
-                    
+            
             }
+        },
+        getRecommendations(formData) {
+            // Initialize Array
+            let values = Array(5).fill(0);
+
+            // Duration of Sleep (connected with age)
+            if (formData.age == 0) {
+                if (formData.sleepDuration < 11) {
+                    values[0] = 1;
+                }
+            }
+            else if (formData.age >= 1 && formData.age <= 5) {
+                if (formData.sleepDuration < 9) {
+                    values[0] = 2;
+                }
+            }
+            else if (formData.age >= 6 && formData.age <= 13) {
+                if (formData.sleepDuration < 7) {
+                    values[0] = 3;
+                }
+            }
+            else if (formData.age >= 14 && formData.age <= 17) {
+                if (formData.sleepDuration < 7) {
+                    values[0] = 4;
+                }
+            }
+            else if (formData.age >= 18 && formData.age <= 25) {
+                if (formData.sleepDuration < 6) {
+                    values[0] = 5;
+                }
+            }
+            else if (formData.age >= 26 && formData.age <= 64) {
+                if (formData.sleepDuration < 6) {
+                    values[0] = 6;
+                }
+            }   
+            else if (formData.age >= 65) {
+                if (formData.sleepDuration < 5) {
+                    values[0] = 7;
+                }
+            }
+            
+            // No. of Awakenings
+            if (formData.awakenings >= 2) {
+                values[1] = 1;
+            }
+
+            // Smoke
+            if (formData.smoking == 1) {
+                values[2] = 1;
+            }
+
+            // Weekly Exercise Frequency
+            if (formData.exercise <= 1) {
+                values[3] = 1;
+            }
+
+            // No. of Coffee Cups
+            if ((formData.caffeine / 90) >= 3){
+                values[4] = 1;
+            }
+
+            return values;
         }
     }
 }
