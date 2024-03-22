@@ -1,6 +1,6 @@
 <template>
     <div id="top-half">
-        <div id="results" class="text-container">
+        <div id="results">
             <div class="image-container">
                     <img v-if="sleepType === 'Deep Sleep'" id= "moon" :src="require('@/assets/moonv3.png')" alt="Image" />
                     <img v-else-if="sleepType === 'Light Sleep'" id= "moon" :src="require('@/assets/light-sleep-icon.png')" alt="Image" />
@@ -81,6 +81,20 @@ export default {
     margin-top: 10px;
     display: flex;
     gap: 15px; 
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    height: 100vh;
+    width: 55%;
+    margin: auto;
+    color: #fff;
+    padding: 15px;
+    text-align: justify;
+    text-justify: inter-word;
+
 }
 
 button {
