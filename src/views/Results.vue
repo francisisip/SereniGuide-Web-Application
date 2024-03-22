@@ -21,9 +21,27 @@
             <h5>Deep Sleep - The stage of sleep that allows the the body to repair and regrow tissues, build bones 
                 and muscles, and helps strengthen the immune system. Deep sleep ideally comprises 70% of your sleep 
                 time: around 105 - 120 minutes for a healthy 8 hours.  </h5>
-            <h5>{{ values }}</h5>
-            <h5 v-if="values[0] === 1">It seems like you're not getting enough sleep. 
-                For your age range (below 1 year old), The National Sleep Foundation recommends your sleep lasts between 12 to 17 hours.</h5>
+
+            <br>
+                
+            <h4 v-if="!areAllValuesZero(values)">Recommendations</h4>
+
+            <h5 v-if="values[0] === 1">It seems like you're not getting enough sleep. For your age range (below 1 year old), The National Sleep Foundation recommends your sleep lasts between 12 to 17 hours.<br></h5>
+            <h5 v-if="values[0] === 2">It seems like you're not getting enough sleep. For your age range (1-5 years old), The National Sleep Foundation recommends your sleep lasts between 10 to 14 hours.<br></h5>
+            <h5 v-if="values[0] === 3">It seems like you're not getting enough sleep. For your age range (6-13 years old), The National Sleep Foundation recommends your sleep lasts between 9 to 11 hours.<br></h5>
+            <h5 v-if="values[0] === 4">It seems like you're not getting enough sleep. For your age range (14-17 years old), The National Sleep Foundation recommends your sleep lasts between 8 to 10 hours.<br></h5>
+            <h5 v-if="values[0] === 5">It seems like you're not getting enough sleep. For your age range (18-25 years old), The National Sleep Foundation recommends your sleep lasts between 7 to 9 hours.<br></h5>
+            <h5 v-if="values[0] === 6">It seems like you're not getting enough sleep. For your age range (26-64 years old), The National Sleep Foundation recommends your sleep lasts between 7 to 9 hours.<br></h5>
+            <h5 v-if="values[0] === 7">It seems like you're not getting enough sleep. For your age range (65 years old and above), The National Sleep Foundation recommends your sleep lasts between 7 to 8 hours.<br></h5>
+
+            <h5 v-if="values[1] === 1">It appears that you've been waking up frequently in the middle of the night. This could be due to increased exposure to blue light before bedtime or consuming caffeine. If the issue persists, it's advisable to consult a doctor for further evaluation and guidance.<br></h5>
+
+            <h5 v-if="values[2] ===1">Tobacco and nicotine usage are detrimental to sleep quality. Their addictive properties stimulate the brain and lead to nocturnal awakenings, insomnia, and sleep disturbance. Smoking also interferes with respiratory functions, sometimes leading to sleep apnea. SereniGuide recommends you reduce or cease your nicotine intake.<br></h5>
+
+            <h5 v-if="values[3] ===1">It seems that you're not getting sufficient exercise. Engaging in aerobic activities such as jogging or swimming can significantly improve your sleep quality. However, low-intensity exercises like yoga may not have a noticeable impact on your sleep.<br></h5>
+
+            <h5 v-if="values[4] ===1">It appears that you're consuming a significant amount of coffee. We recommend reducing your coffee intake. Additionally, try to consume it earlier in the day, as doctors advise having your last cup at least 10 hours before bedtime.<br></h5>
+
             </div>
         </div>
     </div>
@@ -55,6 +73,11 @@ export default {
         }
 
         this.values = recoValues;
+    },
+    methods: {
+        areAllValuesZero(values) {
+            return values.every(value => value === 0);
+        }
     }
 }
 </script>
@@ -171,11 +194,11 @@ h1 {
 
 h4 {
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
 }
 
 h5 {
-    font-size: 1.2vw;
+    font-size: 1.0vw;
     margin-top: 5px;
     margin-bottom: 5px;
 }

@@ -9,7 +9,7 @@ CORS(app)
 with open("flask_server\scaler.pkl", "rb") as model_file:
     scaler = pickle.load(model_file)
 
-with open("flask_server\\best_mlp.pkl", "rb") as model_file:
+with open(r"flask_server\best_mlp.pkl", "rb") as model_file:
     best_mlp = pickle.load(model_file)
 
 
@@ -24,11 +24,11 @@ def input():
         [
             int(data[0]["age"]),
             float(data[0]["sleepDuration"]),
-            float(data[0]["awakenings"]),
+            int(data[0]["awakenings"]),
             float(data[0]["caffeine"]),  # No need to convert caffeine and alcohol since they're already integers
             float(data[0]["alcohol"]),
             int(data[0]["smoking"]),
-            float(data[0]["exercise"]),
+            int(data[0]["exercise"]),
         ]
     ]
 
