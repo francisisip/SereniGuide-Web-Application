@@ -1,9 +1,8 @@
 <template>
   <div class="forlanding">
     <Landing v-if="showLanding" />  
-    <router-view></router-view>
   </div>
-  
+  <router-view></router-view>
 </template>
 
 <script>
