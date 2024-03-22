@@ -15,5 +15,17 @@ npm run serve
 npm run build
 ```
 
+### Python Flask Server setup
+```
+pip install flask
+pip install scikit-learn
+pip install flask_cors
+```
+
+in the flask_server folder, run
+```
+python machine_learning.py
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
