@@ -94,12 +94,10 @@ export default {
 
 .text-container {
     background-color:#19191952;
-    
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    height: 100vh;
     width: 55%;
     margin: auto;
     color: #fff;
@@ -110,6 +108,31 @@ export default {
 
 .pdx{
     margin: 15px;
+    height: 200px;
+    overflow-y: auto;
+    padding-right: 10px
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 button {
@@ -137,7 +160,7 @@ button:hover {
 .disclaimer {
     margin-top: 5px;
     font-size: 0.8vw;
-    margin-bottom: 60px;
+    margin-bottom: 35px;
 }
 
 h1 {

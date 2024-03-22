@@ -1,20 +1,17 @@
 <template>
   <div class="forlanding">
     <Landing v-if="showLanding" />  
-    <router-view></router-view>
   </div>
-  
+  <router-view></router-view>
 </template>
 
 <script>
 import Landing from './components/Landing.vue'
-import InputForm from './components/Input-Form.vue'
 
 export default {
   name: 'App',
   components: {
-    Landing,
-    InputForm
+    Landing
   },
   data() {
     return {
