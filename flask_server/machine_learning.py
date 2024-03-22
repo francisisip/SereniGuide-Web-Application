@@ -25,7 +25,9 @@ def input():
             int(data[0]["age"]),
             float(data[0]["sleepDuration"]),
             int(data[0]["awakenings"]),
-            float(data[0]["caffeine"]),  # No need to convert caffeine and alcohol since they're already integers
+            float(
+                data[0]["caffeine"]
+            ),  # No need to convert caffeine and alcohol since they're already integers
             float(data[0]["alcohol"]),
             int(data[0]["smoking"]),
             int(data[0]["exercise"]),
