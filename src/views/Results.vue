@@ -9,7 +9,7 @@
             <h1 id="type" class="type">{{ sleepType }}</h1>
         </div>
         <div class="button-container">
-            <router-link to="/save"><button>Save Results</button></router-link>
+            <!-- <router-link to="/save"><button>Save Results</button></router-link> -->
             <router-link to="/"><button>Retake</button></router-link>
         </div>
         <span class="disclaimer">Disclaimer: This is not a professional diagnosis. Please consult a healthcare professional for a proper diagnosis.</span>
@@ -20,9 +20,6 @@
             <h5>Deep Sleep - The stage of sleep that allows the the body to repair and regrow tissues, build bones 
                 and muscles, and helps strengthen the immune system. Deep sleep ideally comprises 70% of your sleep 
                 time: around 105 - 120 minutes for a healthy 8 hours.  </h5>
-            <h5>REM Sleep - Rapid Eye Movement (REM) Sleep is the stage of sleep where your brain activity, 
-                breathing, blood pressure, and heart rate all increase. REM sleep is key to better mental 
-                concentration, mood regulation, and long-term learning.  </h5>
         </div>
     </div>
 </template>

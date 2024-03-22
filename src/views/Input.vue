@@ -87,6 +87,7 @@ export default {
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
             customClass: 'custom-tooltip'
         }))
+
     },
     methods: {
         validateForm() {
@@ -133,6 +134,14 @@ export default {
 
                 const formDataArray = [formData]
 
+                document.getElementById('age').value = "";
+                document.getElementById('sleep-duration').value = "";
+                document.getElementById('awakenings').value = "";
+                document.getElementById('smoking').value = "";
+                document.getElementById('exercise').value = "";
+                document.getElementById('caffeine').value = "";
+                document.getElementById('alcohol').value = "";
+
                 // Make Axios POST request
                 axios.post('http://127.0.0.1:5000/input', formDataArray)
                     .then(response => {
@@ -146,6 +155,7 @@ export default {
                     .catch(error => {
                         console.error('Error submitting form:', error);
                     });
+                    
             }
         }
     }
