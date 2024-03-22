@@ -14,12 +14,14 @@
         </div>
         <span class="disclaimer">Disclaimer: This is not a professional diagnosis. Please consult a healthcare professional for a proper diagnosis.</span>
         <div class="text-container">
+            <div class="pdx">
             <h4>Additional Information</h4>
             <h5>Light Sleep - The stage of sleep where your heart rate decreases, your body temperature drops, 
                 and your breathing slows. This phase only lasts for 10 to 25 minutes. </h5>
             <h5>Deep Sleep - The stage of sleep that allows the the body to repair and regrow tissues, build bones 
                 and muscles, and helps strengthen the immune system. Deep sleep ideally comprises 70% of your sleep 
                 time: around 105 - 120 minutes for a healthy 8 hours.  </h5>
+            </div>
         </div>
     </div>
 </template>
@@ -84,6 +86,9 @@ export default {
 }
 
 .text-container {
+    background-color:#19191952;
+    
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -94,7 +99,10 @@ export default {
     padding: 15px;
     text-align: justify;
     text-justify: inter-word;
+}
 
+.pdx{
+    margin: 15px;
 }
 
 button {
