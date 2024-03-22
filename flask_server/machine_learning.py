@@ -6,10 +6,10 @@ import pickle
 app = Flask(__name__)
 CORS(app)
 # Load your trained machine learning model
-with open("flask_server\scaler.pkl", "rb") as model_file:
+with open("scaler.pkl", "rb") as model_file:
     scaler = pickle.load(model_file)
 
-with open(r"flask_server\best_mlp.pkl", "rb") as model_file:
+with open("best_mlp.pkl", "rb") as model_file:
     best_mlp = pickle.load(model_file)
 
 
